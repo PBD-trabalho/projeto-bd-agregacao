@@ -1,1 +1,48 @@
+# schema sql:
+
+```sql
+CREATE TABLE funcionario (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    supervisor_id INTEGER,
+    FOREIGN KEY (supervisor_id) REFERENCES funcionario(id)
+);
+
+CREATE TABLE dependente (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    funcionario_id INTEGER NOT NULL,
+    FOREIGN KEY (funcionario_id) REFERENCES funcionario(id)
+);
+
+CREATE TABLE projeto (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE equipamento (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    numero_patrimonio VARCHAR(50) NOT NULL UNIQUE
+);
+
+CREATE TABLE alocacao (
+    id SERIAL PRIMARY KEY,
+    funcionario_id INTEGER NOT NULL,
+    projeto_id INTEGER NOT NULL,
+    data_inicio DATE NOT NULL,
+    data_fim DATE,
+    FOREIGN KEY (funcionario_id) REFERENCES funcionario(id),
+    FOREIGN KEY (projeto_id) REFERENCES projeto(id)
+);
+
+CREATE TABLE alocacao_equipamento (
+    id SERIAL PRIMARY KEY,
+    alocacao_id INTEGER NOT NULL,
+    equipamento_id INTEGER NOT NULL,
+    data_uso DATE NOT NULL,
+    observacao VARCHAR(255),
+    FOREIGN KEY (alocacao_id) REFERENCES alocacao(id),
+    FOREIGN KEY (equipamento_id) REFERENCES equipamento(id)
+);
 
