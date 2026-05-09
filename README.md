@@ -2,6 +2,7 @@
 Este projeto apresenta a modelagem de um banco de dados utilizando Diagramas ER no formato Mermaid. O objetivo da atividade é representar relacionamentos entre entidades, incluindo conceitos importantes de modelagem como autorelacionamento, dependência de existência e agregação.
 O diagrama foi desenvolvido utilizando a sintaxe erDiagram do Mermaid, permitindo a visualização estrutural das entidades e seus relacionamentos de forma simples e organizada.
 
+Integrantes: Leonardo Lopes Magalhães e Gabrielly Maria Nunes
 
 
 
